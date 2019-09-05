@@ -70,10 +70,13 @@ class User:
         '''
         return cls.user_list
 
-    @classmethod
-    def copy_password(cls,first_name):
-        user_found = User.find_by_first_name(first_name)
-        pyperclip.copy(user_found.password)
+    # @classmethod
+    # def copy_password(cls,first_name):
+    #     user_found = User.find_by_first_name(first_name)
+    #     pyperclip.copy(user_found.password)
+      
+  
+pass
 
 
 
@@ -84,16 +87,16 @@ class Credential:
     credentials_list =  []
     user_credentials_list = []
 
-    @classmethod
-    def check_user(cls,first_name,password):
-        '''
-        method that checks if the name and passwword entered match
-        '''
-        current_user = ''
-        for user in User.user_list:
-            if (user.first_name == first_name and user.password == password):
-                current_user = user.first_name
-        return current_user
+    # @classmethod
+    # def check_user(cls,first_name,password):
+    #     '''
+    #     method that checks if the name and passwword entered match
+    #     '''
+    #     current_user = ''
+    #     for user in User.user_list:
+    #         if (user.first_name == first_name and user.password == password):
+    #             current_user = user.first_name
+    #     return current_user
 
     def __init__(self,user_name,site_name,account_name,password):
         '''
