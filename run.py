@@ -17,17 +17,7 @@ def del_user(user):
     Function to delete a user
     '''
     user.delete_user()
-def find_user(first_name):
-    '''
-    Function that finds a user by number and returns the user
-    '''
-    return User.find_by_first_name(first_name)
-    
-def check_existing_users(first_name):
-    '''
-    Function that check if a user exists with that number and return a Boolean
-    '''
-    return User.user_exist(first_name)
+
 def display_users():
     '''
     Function that returns all the saved users
@@ -76,10 +66,7 @@ def copy_credential():
 def main():
     print(' ')
     print("Welcome to your Password_locker App !!!")
-#     user_name = input()
 
-#     print(f"Hello {user_name}. what would you like to do?")
-#     print('\n')
     while True:
          print(' ')
          print("-"*60)
