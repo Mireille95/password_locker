@@ -92,27 +92,27 @@ class TestUser(unittest.TestCase):
         '''
 
         self.new_user.save_user()
-        test_user = User("Test","user","0711223344","test@user.com") # new contact
-        test_contact.save_contact()
+        test_user = User("Test","user","0711223344") # new contact
+        test_user.save_user()
 
-        contact_exists = Contact.contact_exist("0711223344")
+        user_exists = User.user_exist("Test")
 
-        self.assertTrue(contact_exists)
-    def test_display_all_contacts(self):
+        self.assertTrue(user_exists)
+    def test_display_all_users(self):
         '''
-        method that returns a list of all contacts saved
-        '''
-
-        self.assertEqual(Contact.display_contacts(),Contact.contact_list)
-    def test_copy_email(self):
-        '''
-        Test to confirm that we are copying the email address from a found contact
+        method that returns a list of all users saved
         '''
 
-        self.new_contact.save_contact()
-        Contact.copy_email("0712345678")
+        self.assertEqual(User.display_users(),User.user_list)
+    def test_copy_password(self):
+        '''
+        Test to confirm that we are copying the password address from a found contact
+        '''
 
-        self.assertEqual(self.new_contact.email,pyperclip.paste())
+        self.new_user.save_user()
+        User.copy_email("Test")
+
+        self.assertEqual(self.new_user.password,pyperclip.paste())
 
 
 if __name__ ==  '__main__':

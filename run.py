@@ -1,37 +1,37 @@
 #!/usr/bin/env python3.6
-from contact import Contact
+from user import User , Credential
 
-def create_contact(fname,lname,phone,email):
+def create_user(fname,lname,pswd):
     '''
-    Function to create a new contact
+    Function to create a new user
     '''
-    new_contact = Contact(fname,lname,phone,email)
-    return new_contact
-def save_contacts(contact):
+    new_user = User(fname,lname,pswd)
+    return new_user
+def save_users(user):
     '''
-    Function to save contact
+    Function to save user
     '''
-    contact.save_contact()
-def del_contact(contact):
+    user.save_user()
+def del_user(user):
     '''
-    Function to delete a contact
+    Function to delete a user
     '''
-    contact.delete_contact()
-def find_contact(number):
+    user.delete_user()
+def find_user(first_name):
     '''
-    Function that finds a contact by number and returns the contact
+    Function that finds a user by number and returns the user
     '''
-    return Contact.find_by_number(number)
-def check_existing_contacts(number):
+    return User.find_by_first_name(first_name)
+def check_existing_users(first_name):
     '''
-    Function that check if a contact exists with that number and return a Boolean
+    Function that check if a user exists with that number and return a Boolean
     '''
-    return Contact.contact_exist(number)
-def display_contacts():
+    return User.user_exist(first_name)
+def display_users():
     '''
-    Function that returns all the saved contacts
+    Function that returns all the saved users
     '''
-    return Contact.display_contacts()
+    return User.display_users()
 def main():
     print("Hello Welcome to your contact list. What is your name?")
     user_name = input()
@@ -54,11 +54,8 @@ def main():
                             print("Last name ...")
                             l_name = input()
 
-                            print("Phone number ...")
+                            print("Password ...")
                             p_number = input()
-
-                            print("Email address ...")
-                            e_address = input()
 
 
                             save_contacts(create_contact(f_name,l_name,p_number,e_address)) # create and save new contact.
