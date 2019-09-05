@@ -90,6 +90,24 @@ class Credential:
 
         User.user_list.remove(self)
 
+
+    @classmethod
+    def find_by_site_name(cls, site_name):
+        '''
+        method that takes in a site_name and returns a credential that matches
+        '''
+        for credential in cls.credentials_list:
+            if credential.site_name == site_name
+        return credential
+    @classmethod
+    def copy_credential(cls,site_name):
+        '''
+        class method that copies a credential
+        '''
+        find_credential = Credential.find_by_site_name(site_name)
+        return pyperclip.copy(find_credential.password)
+
+
     @classmethod
     def find_by_first_name(cls,first_name):
         '''
