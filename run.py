@@ -73,18 +73,21 @@ def copy_credential():
         return Credential.copy_credential(site_name)
 
 def main():
+    print(' ')
     print("Welcome to your Password_locker App !!!")
 #     user_name = input()
 
 #     print(f"Hello {user_name}. what would you like to do?")
 #     print('\n')
-
     while True:
-                    print("Use these short codes : cc - create a new user, dc - display users, fc -find a user, ex -exit the user list ")
+         print(' ')
+         print("-"*60)
+         print('Use these codes to navigate: \n ca-Create an Account \n li-Log In \n ex-Exit')
+	 short_code = input('Enter a choice: ').lower().strip()
+	 if short_code == 'ex':
+		break
 
-                    short_code = input().lower()
-
-                    if short_code == 'cc':
+        elif short_code == 'cc':
                             print("New User")
                             print("-"*10)
 
