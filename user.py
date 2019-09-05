@@ -75,8 +75,6 @@ class User:
     #     user_found = User.find_by_first_name(first_name)
     #     pyperclip.copy(user_found.password)
       
-  
-pass
 
 
 
@@ -87,16 +85,16 @@ class Credential:
     credentials_list =  []
     user_credentials_list = []
 
-    # @classmethod
-    # def check_user(cls,first_name,password):
-    #     '''
-    #     method that checks if the name and passwword entered match
-    #     '''
-    #     current_user = ''
-    #     for user in User.user_list:
-    #         if (user.first_name == first_name and user.password == password):
-    #             current_user = user.first_name
-    #     return current_user
+    @classmethod
+    def check_user(cls,first_name,password):
+        '''
+        method that checks if the name and passwword entered match
+        '''
+        current_user = ''
+        for user in User.user_list:
+            if (user.first_name == first_name and user.password == password):
+                current_user = user.first_name
+        return current_user
 
     def __init__(self,user_name,site_name,account_name,password):
         '''
@@ -107,7 +105,7 @@ class Credential:
         self.user_name = user_name
         self.site_name = site_name
         self.account_name = account_name
-        self.password =  passwword
+        self.password =  password
 
     def save_credentials(self):
         '''
@@ -125,7 +123,7 @@ class Credential:
         return gen_pass
 
     @classmethod
-    def display_credentials(clas,user_name):
+    def display_credentials(cls,user_name):
         '''
         class method to display the list of credentials saved in 
         '''
@@ -136,14 +134,13 @@ class Credential:
                 user_credentials_list.append(credential)
         return user_credentials_list
     @classmethod
-    # def find_by_site_name(cls, site_name):
-    #     '''
-    #     method that takes in a site_name and returns a credential that matches
-    #     '''
-    #     for credential in cls.credentials_list:
-    #         if credential.site_name == site_name:
-
-	# 	       return credential
+    def find_by_site_name(cls, site_name):
+        '''
+        method that takes in a site_name and returns a credential that matches
+        '''
+        for credential in cls.credentials_list:
+            if credential.site_name == site_name:
+                return credential
 
     @classmethod
     def copy_credential(cls,site_name):
