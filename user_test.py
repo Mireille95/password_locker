@@ -3,7 +3,7 @@ import pyperclip
 
 
 
-from user import User, Credential # Importing the contact class
+from user import User # Importing the contact class
 
 class TestUser(unittest.TestCase):
 
@@ -68,7 +68,7 @@ class TestUser(unittest.TestCase):
             '''
             test_delete_user to test if we can remove a user from our user list
             '''
-            self.new_contact.save_contact()
+            self.new_user.save_user()
             test_user = User("Test","user","0712345678") # new user
             test_user.save_user()
 
@@ -110,12 +110,12 @@ class TestUser(unittest.TestCase):
         '''
 
         self.new_user.save_user()
-        User.copy_email("Test")
+        User.copy_password("0712345678")
 
         self.assertEqual(self.new_user.password,pyperclip.paste())
 
 
 if __name__ ==  '__main__':
     unittest.main()
-  
+   
     

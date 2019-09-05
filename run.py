@@ -1,5 +1,5 @@
 #!/usr/bin/env python3.6
-from user import User , Credential
+from user import User ,Credential
 
 def create_user(fname,lname,pswd):
     '''
@@ -33,19 +33,19 @@ def display_users():
     '''
     return User.display_users()
 def main():
-    print("Hello Welcome to your contact list. What is your name?")
+    print("Hello Welcome to your Password_locker App !!!")
     user_name = input()
 
     print(f"Hello {user_name}. what would you like to do?")
     print('\n')
 
     while True:
-                    print("Use these short codes : cc - create a new contact, dc - display contacts, fc -find a contact, ex -exit the contact list ")
+                    print("Use these short codes : cc - create a new user, dc - display users, fc -find a user, ex -exit the user list ")
 
                     short_code = input().lower()
 
                     if short_code == 'cc':
-                            print("New Contact")
+                            print("New User")
                             print("-"*10)
 
                             print ("First name ....")
@@ -58,9 +58,9 @@ def main():
                             p_password = input()
 
 
-                            save_contacts(create_contact(f_name,l_name,p_password)) # create and save new contact.
+                            save_users(create_user(f_name,l_name,p_password)) # create and save new contact.
                             print ('\n')
-                            print(f"New Contact {f_name} {l_name} created")
+                            print(f"New User {f_name} {l_name} created")
                             print ('\n')
 
                     elif short_code == 'dc':
@@ -70,7 +70,7 @@ def main():
                                     print('\n')
 
                                     for user in display_users():
-                                            print(f"{user.first_name} {user.last_name} .....{contact.password}")
+                                            print(f"{user.first_name} {user.last_name} .....{user.password}")
 
                                     print('\n')
                             else:
@@ -80,7 +80,7 @@ def main():
 
                     elif short_code == 'fc':
 
-                            print("Enter the number you want to search for")
+                            print("Enter the name you want to search for")
 
                             search_first_name = input()
                             if check_existing_users(search_first_name):
@@ -88,7 +88,7 @@ def main():
                                     print(f"{search_user.first_name} {search_user.last_name}")
                                     print('-' * 20)
 
-                                    print(f"Password.......{search_contact.password}")
+                                    print(f"Password.......{search_user.password}")
                                    
                             else:
                                     print("That user does not exist")

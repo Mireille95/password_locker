@@ -1,4 +1,8 @@
 import pyperclip
+import random
+import string
+
+
 class User:
     """
     Class that generates new instances of users.
@@ -15,13 +19,50 @@ class User:
         self.password = password
        
 
-    def save_contact(self):
+    def save_user(self):
 
         '''
         save_user method saves user objects into user_list
         '''
 
         User.user_list.append(self)
+
+class Credential:
+    '''
+    class to create account credintials, generate password and save the info
+    '''
+    credentials_list =  []
+    user_credentials_list = []
+    @classmethod
+    def check_user(clas,first_name,password):
+        '''
+        method that checks if the name and passwword entered match
+        '''
+        current user = ''
+        for userin User.user_list:
+            if (user.first_name == first_name and user.password == password):
+                current_user = user.first_name
+        return current_user
+
+    def __init__(self,user_name,site_name,account_name,password):
+        '''
+        method to define the properties for each user object will hold
+        '''
+
+        # instance variable
+        self.user_name = user_name
+        self.site_name = site_name
+        self.account_name = account_name
+        self.password =  passwword
+
+    def save_credentials(self):
+        '''
+        function to save a new created user insatnce
+        '''
+
+        Credential.credentials_list.append(self)
+
+
 
     def delete_user(self):
 
@@ -46,7 +87,7 @@ class User:
             if user.first_name == first_name:
                 return user
     @classmethod
-    def user_exist(cls,number):
+    def user_exist(cls,first_name):
         '''
         Method that checks if a user exists from the user list.
         Args:
@@ -68,7 +109,7 @@ class User:
 
     @classmethod
     def copy_password(cls,first_name):
-        user_found = User.find_by_first_name)
+        user_found = User.find_by_first_name(first_name)
         pyperclip.copy(user_found.password)
   
 pass
