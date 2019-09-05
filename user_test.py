@@ -38,6 +38,12 @@ class TestUser(unittest.TestCase):
         '''
         self.new_user.save_user() # saving the new user
         self.assertEqual(len(User.user_list),1)
+    def tearDown(self):
+        
+        '''
+		Function to clear the credentials list after every test
+		'''
+        User.users_list = []
 
     # def test_save_multiple_user(self):
     #         '''
@@ -49,16 +55,16 @@ class TestUser(unittest.TestCase):
     #         test_user.save_user()
     #         self.assertEqual(len(User.user_list),2)
 
-    def test_delete_user(self):
-            '''
-            test_delete_user to test if we can remove a user from our user list
-            '''
-            self.new_user.save_user()
-            test_user = User("Test","user","0712345678") # new user
-            test_user.save_user()
+    # def test_delete_user(self):
+    #         '''
+    #         test_delete_user to test if we can remove a user from our user list
+    #         '''
+    #         self.new_user.save_user()
+    #         test_user = User("Test","user","0712345678") # new user
+    #         test_user.save_user()
 
-            self.new_user.delete_user()# Deleting a user object
-            self.assertEqual(len(User.user_list),1)
+    #         self.new_user.delete_user()# Deleting a user object
+    #         self.assertEqual(len(User.user_list),1)
 
 
     # def test_find_user_by_first_name(self):
@@ -99,9 +105,9 @@ class TestCredentials(unittest.TestCase):
         function to test whether the login in function checuser woks as expected
         '''
 
-        self.new_user= User('Mimi','Ng\'ang\'a','pswd100')
+        self.new_user= User('Mimi','mireille','pswd100')
         self.new_user.save_user()
-        user2 = User('fanny','Ng\'ang\'a','pswd100')
+        user2 = User('fanny','mireille,'pswd100')
         user2.save_user()
         
         for user in User.user_list:
@@ -163,17 +169,17 @@ class TestCredentials(unittest.TestCase):
         
         self.assertEqual(len(Credential.display_credentials(twitter.user_name)),2)
         
-    def test_find_by_site_name(self):
-        '''
-		Test to check if the find_by_site_name method returns the correct credential
-		'''
+    # def test_find_by_site_name(self):
+    #     '''
+	# 	Test to check if the find_by_site_name method returns the correct credential
+	# 	'''
         
-        self.new_credential.save_credentials()
+    #     self.new_credential.save_credentials()
 
-        twitter = Credential('Jane','Twitter','maryjoe','pswd100')
-        twitter.save_credentials()
-        credential_exists = Credential.find_by_site_name('Twitter')
-        self.assertEqual(credential_exists,twitter)
+    #     twitter = Credential('Jane','Twitter','maryjoe','pswd100')
+    #     twitter.save_credentials()
+    #     credential_exists = Credential.find_by_site_name('Twitter')
+    #     self.assertEqual(credential_exists,twitter)
         
     # def test_copy_credential(self):
         

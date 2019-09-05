@@ -1,4 +1,4 @@
-import pyperclip
+
 import random
 import string
 
@@ -27,28 +27,28 @@ class User:
 
         User.user_list.append(self)
 
-    def delete_user(self):
+    # def delete_user(self):
 
-        '''
-        delete_user method deletes a saved user from the user_list
-        '''
+    #     '''
+    #     delete_user method deletes a saved user from the user_list
+    #     '''
 
-        User.user_list.remove(self)
+    #     User.user_list.remove(self)
 
-    @classmethod
-    def find_by_first_name(cls,first_name):
-        '''
-        Method that takes in a name and returns a contact that matches that name.
+    # @classmethod
+    # def find_by_first_name(cls,first_name):
+    #     '''
+    #     Method that takes in a name and returns a contact that matches that name.
 
-        Args:
-            number: name to search for
-        Returns :
-            user of person that matches the name.
-        '''
+    #     Args:
+    #         number: name to search for
+    #     Returns :
+    #         user of person that matches the name.
+    #     '''
 
-        for user in cls.user_list:
-            if user.first_name == first_name:
-                return user
+    #     for user in cls.user_list:
+    #         if user.first_name == first_name:
+    #             return user
     # @classmethod
     # def user_exist(cls,first_name,password):
     #     '''
@@ -63,12 +63,12 @@ class User:
     #                 return True
 
     #     return False
-    @classmethod
-    def display_users(cls):
-        '''
-        method that returns the user list
-        '''
-        return cls.user_list
+    # @classmethod
+    # def display_users(cls):
+    #     '''
+    #     method that returns the user list
+    #     '''
+    #     return cls.user_list
 
     # @classmethod
     # def copy_password(cls,first_name):
@@ -118,7 +118,7 @@ class Credential:
         '''
         function to generate an 8 character password
         '''
-        gen_pass = ''.join(random.choice(char) for _ in range(size))
+        gen_pass =''.join(random.choice(char) for _ in range(size))
 
         return gen_pass
 
@@ -133,22 +133,24 @@ class Credential:
             if credential.user_name == user_name:
                 user_credentials_list.append(credential)
         return user_credentials_list
-    @classmethod
-    def find_by_site_name(cls, site_name):
-        '''
-        method that takes in a site_name and returns a credential that matches
-        '''
-        for credential in cls.credentials_list:
-            if credential.site_name == site_name:
-                return credential
 
-    @classmethod
-    def copy_credential(cls,site_name):
-        '''
-        class method that copies a credential
-        '''
-        find_credential = Credential.find_by_site_name(site_name)
-        return pyperclip.copy(find_credential.password)
+        
+    # @classmethod
+    # def find_by_site_name(cls, site_name):
+    #     '''
+    #     method that takes in a site_name and returns a credential that matches
+    #     '''
+    #     for credential in cls.credentials_list:
+    #         if credential.site_name == site_name:
+    #             return credential
+
+    # @classmethod
+    # def copy_credential(cls,site_name):
+    #     '''
+    #     class method that copies a credential
+    #     '''
+    #     find_credential = Credential.find_by_site_name(site_name)
+    #     return pyperclip.copy(find_credential.password)
 
 pass
 

@@ -1,34 +1,38 @@
 #!/usr/bin/env python3.6
+import pyperclip
+
 from user import User ,Credential
 
-def create_user(fname,lname,pswd):
+def create_user(fname,lname,password):
     '''
     Function to create a new user
     '''
-    new_user = User(fname,lname,pswd)
+    new_user = User(fname,lname,password)
     return new_user
-def save_users(user):
+def save_user(user):
     '''
-    Function to save user
+    Function to save a user
     '''
     user.save_user()
-def del_user(user):
-    '''
-    Function to delete a user
-    '''
-    user.delete_user()
 
-def display_users():
-    '''
-    Function that returns all the saved users
-    '''
-    return User.display_users()
+# def del_user(user):
+#     '''
+#     Function to delete a user
+#     '''
+#     user.delete_user()
+
+# def display_users():
+#     '''
+#     Function that returns all the saved users
+#     '''
+#     return User.display_users()
 
 def verify_user(first_name,password):
         '''
         function that verfiess the existance of the user before creating crede
         '''
         checking_user = Credential.check_user(first_name,password)
+        return checking_user
 
 def generate_password():
         '''
@@ -81,7 +85,7 @@ def main():
                  first_name = input('Enter your First name - ').strip()
                  last_name = input('Enter your last name - ').strip()
                  password = input('Enter your password - ').strip()
-                 save_users(create_user(first_name,last_name,password))
+                 save_user(create_user(first_name,last_name,password))
                  print(" ")
                  print(f'New Account Created for: {first_name} {last_name} using password: {password}')
          
