@@ -121,11 +121,12 @@ class TestCredentials(unittest,TestCase):
     Args: 
     unittest.TestCase: helps in creating test cases
     '''
+    
     def  test_check_user(self):
         '''
         function to test whether the login in function checuser woks as expected
         '''
-        self.new_user= User('Mimi',,'Ng\'ang\'a','pswd100')
+        self.new_user= User('Mimi','Ng\'ang\'a','pswd100')
         self.new_user.save_user()
         user2 = User('fanny','Ng\'ang\'a','pswd100')
         user2.save_user()
@@ -134,9 +135,10 @@ class TestCredentials(unittest,TestCase):
                 current_user = user.first_name
         return current_user
 
-		self.assertEqual(current_user,Credential.check_user(user2.password,user2.first_name))
+	    self.assertEqual(current_user,Credential.check_user(user2.first_name,user2.password))
+    
+    def setUp(self):
 
-	def setUp(self):
         '''
         function to create an account credentials beforre each test
         '''
