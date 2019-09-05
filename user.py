@@ -62,7 +62,25 @@ class Credential:
 
         Credential.credentials_list.append(self)
 
+    def generate_password(size=8,char=string.ascii_uppercase+string.ascii_lowercase+string.digits):
+        '''
+        function to generate an 8 character password
+        '''
+        gen_pass = ''.join(random.choice(char) for _ in range(size))
 
+        return gen_pass
+
+    @classmethod
+    def display_credentials(clas,user_name):
+        '''
+        class method to display the list of credentials saved in 
+        '''
+
+        user_credentials_list = []
+        for credential in cls.credentials_list:
+            if credential.user_name == user_name:
+                user_credentials_list.append(credential)
+        return user_credentials_list
 
     def delete_user(self):
 
