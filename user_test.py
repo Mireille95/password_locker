@@ -74,18 +74,7 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(found_user.password,test_user.password)
 
-    def test_user_exists(self):
-        '''
-        test to check if we can return a Boolean  if we cannot find the user.
-        '''
-
-        self.new_user.save_user()
-        test_user = User("Test","user","0712345678") # new contact
-        test_user.save_user()
-
-        user_exists = User.user_exist("Test")
-
-        self.assertTrue(user_exists)
+ 
 
     def test_display_all_users(self):
         '''
@@ -94,16 +83,7 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(User.display_users(),User.user_list)
 
-    # def test_copy_password(self):
-    #     '''
-    #     Test to confirm that we are copying the password address from a found contact
-    #     '''
-
-    #     self.new_user.save_user()
-    #     User.copy_password("0712345678")
-
-    #     self.assertEqual(self.new_user.password,pyperclip.paste())
-
+ 
 
 
 class TestCredentials(unittest.TestCase):
