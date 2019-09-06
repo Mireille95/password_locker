@@ -27,13 +27,13 @@ class User:
 
         User.user_list.append(self)
 
-    # def delete_user(self):
+    def delete_user(self):
 
-    #     '''
-    #     delete_user method deletes a saved user from the user_list
-    #     '''
+        '''
+        delete_user method deletes a saved user from the user_list
+        '''
 
-    #     User.user_list.remove(self)
+        User.user_list.remove(self)
 
     # @classmethod
     # def find_by_first_name(cls,first_name):
@@ -133,6 +133,15 @@ class Credential:
             if credential.user_name == user_name:
                 user_credentials_list.append(credential)
         return user_credentials_list
+
+    def delete_credential(self):
+
+        '''
+        delete_user method deletes a saved user from the user_list
+        '''
+
+        Credential.credential_list.remove(self)
+
 
         
     # @classmethod

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3.6
+
 import pyperclip
 
 from user import User ,Credential
@@ -15,11 +16,11 @@ def save_user(user):
     '''
     user.save_user()
 
-# def del_user(user):
-#     '''
-#     Function to delete a user
-#     '''
-#     user.delete_user()
+def del_user(user):
+    '''
+    Function to delete a user
+    '''
+    user.delete_user()
 
 # def display_users():
 #     '''
@@ -61,11 +62,18 @@ def display_credentials(user_name):
         '''
         return Credential.display_credentials(user_name)
 
-def copy_credential():
-        '''
-        function to copy a credentials details to the clipborad
-        '''
-        return Credential.copy_credential(site_name)
+
+def del_credential(user):
+    '''
+    Function to delete a user
+    '''
+    user.delete_credential()
+
+# def copy_credential():
+#         '''
+#         function to copy a credentials details to the clipborad
+#         '''
+#         return Credential.copy_credential(site_name)
 
 def main():
     print(' ')
@@ -74,7 +82,7 @@ def main():
     while True:
          print(' ')
          print("-"*60)
-         print('Use these codes to navigate: \n ca-Create an Account \n li-Log In \n ex-Exit')
+         print('Use these codes to navigate: \n ca-Create an Account \n li-Log In \n Dl-Delete  \n ex-Exit')
          short_code = input('Enter a choice: ').lower().strip()
          if short_code == 'ex':
                  break
@@ -102,7 +110,7 @@ def main():
                          print(' ')
                          while True:
                                  print("-"*60)
-                                 print('Navigation codes: \n cc-Create a Credential \n dc-Display Credentials \n copy-Copy Password \n ex-Exit')
+                                 print('Navigation codes: \n Cc-Create a Credential \n Dc-Display Credentials \n Dl-Delete Credential \n ex-Exit')
                                  short_code = input('Enter a choice: ').lower().strip()
                                  print("-"*60)
                                  if short_code == 'ex':
@@ -144,23 +152,31 @@ def main():
                                                  print(f'Site Name: {credential.site_name} - Account Name: {credential.account_name} - Password: {credential.password}')
                                              print(' ')
                                          else:
-                                                 print(' ')
-                                                 print("You don't seem to have any credentials saved yet")
-                                                 print(' ')
-                                 elif short_code == 'copy':
+                                             print(' ')
+                                             print("You don't seem to have any credentials saved yet")
+                                             print(' ')
+                                 elif short_code == 'Dl':
                                          print(' ')
-                                         chosen_site = input('Enter the site name for the credential password to copy: ')
-                                         copy_credential(chosen_site)
+                                         chosen_site = input('Enter the site name for the credential password to delete: ')
+                                         delete_credential(chosen_site)
                                          print('')
                                  else:
                                          print('Oops! Wrong option entered. Try again.')
                  else:
                          print(' ')
                          print('Oops! Wrong details entered. Try again or Create an Account.')
-         else:
-                 print("-"*60)
+         elif short_code == 'Dl':
                  print(' ')
-                 print('Oops! Wrong option entered. Try again.')
+                 chosen_first_name = input('Enter the first_name of the user to delete')
+                 delete_user(chosen_first_name)
+                 user_exists = verify_user(first_name)
+                 if user_exists == first_name:
+                         print(' ')
+                         print(f'The account of {first_name}. deleted successful')
+                 else:
+                         print("-"*60)
+                         print(' ')
+                         print('Oops! Wrong option entered. Try again.')
 				
 
 

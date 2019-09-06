@@ -4,6 +4,8 @@ import pyperclip
 
 
 from user import User,Credential # Importing the contact class
+f = open('test.txt', 'r')
+
 
 class TestUser(unittest.TestCase):
 
@@ -55,16 +57,16 @@ class TestUser(unittest.TestCase):
     #         test_user.save_user()
     #         self.assertEqual(len(User.user_list),2)
 
-    # def test_delete_user(self):
-    #         '''
-    #         test_delete_user to test if we can remove a user from our user list
-    #         '''
-    #         self.new_user.save_user()
-    #         test_user = User("Test","user","0712345678") # new user
-    #         test_user.save_user()
+    def test_delete_user(self):
+            '''
+            test_delete_user to test if we can remove a user from our user list
+            '''
+            self.new_user.save_user()
+            test_user = User("Test","user","0712345678") # new user
+            test_user.save_user()
 
-    #         self.new_user.delete_user()# Deleting a user object
-    #         self.assertEqual(len(User.user_list),1)
+            self.new_user.delete_user()# Deleting a user object
+            self.assertEqual(len(User.user_list),1)
 
 
     # def test_find_user_by_first_name(self):
@@ -142,10 +144,21 @@ class TestCredentials(unittest.TestCase):
         
         self.new_credential.save_credentials()
         
-        twitter = Credential('Jane','Twitter','maryjoe','pswd100')
-        twitter.save_credentials()
+        facebook = Credential('mireille','Facebook','Mireille_Uwase','0727077616')
+        facebook.save_credentials()
         self.assertEqual(len(Credential.credentials_list),2)
         
+    def test_delete_credential(self):
+            '''
+            test_delete_user to test if we can remove a user from our user list
+            '''
+            self.new_credential.save_credentials()
+            test_credential = Credential("Test","0712345678") # new user
+            test_credential.save_credentials()
+
+            self.new_credential.delete_credential()# Deleting a user object
+            self.assertEqual(len(Credential.credential_list),1)
+
     def tearDown(self):
         
         '''
@@ -162,12 +175,12 @@ class TestCredentials(unittest.TestCase):
 		'''
         
         self.new_credential.save_credentials()
-        twitter = Credential('Jane','Twitter','maryjoe','pswd100')
-        twitter.save_credentials()
-        gmail = Credential('Jane','Gmail','maryjoe','pswd200')
-        gmail.save_credentials()
+        facebook = Credential('mireille','Facebook','Mireille_Uwase','0727077616')
+        facebook.save_credentials()
+        github = Credential('mireille','github','Mireille95','Mimi@2019')
+        github.save_credentials()
         
-        self.assertEqual(len(Credential.display_credentials(twitter.user_name)),2)
+        self.assertEqual(len(Credential.display_credentials(facebook.user_name)),2)
         
     # def test_find_by_site_name(self):
     #     '''
